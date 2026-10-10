@@ -9,6 +9,8 @@ const statusLabel: Record<MatchStatus, string> = {
   faltante: 'Faltante',
 }
 
+const sourceLabel = { task: 'qué necesitaba resolverse', action: 'qué hiciste tú', result: 'qué cambió o quedó listo' } as const
+
 function App() {
   const [selectedId, setSelectedId] = useState(evidenceExamples[0].exampleId)
   const selected = useMemo(() => evidenceExamples.find((item) => item.exampleId === selectedId) ?? evidenceExamples[0], [selectedId])
@@ -115,13 +117,13 @@ function App() {
               ))}
             </div>
             <div className="identity-row"><span>Alias</span><strong>{draft.workerAlias}</strong><span>Contexto</span><strong>{draft.context}</strong></div>
+            <p className="privacy-note"><strong>Practica solo con este ejemplo inventado.</strong> No escribas nombres, teléfonos, correos, identificaciones, cuentas, contraseñas ni información de salud. Nada se guarda ni se envía.</p>
             <div className="field-stack">
               <label><span>¿Qué necesitaba resolverse?</span><textarea maxLength={180} value={draft.task} onChange={(event) => update('task', event.target.value)} /><small>{draft.task.length}/180</small></label>
               <label><span>¿Qué hiciste tú?</span><textarea maxLength={220} value={draft.action} onChange={(event) => update('action', event.target.value)} /><small>{draft.action.length}/220</small></label>
               <label><span>¿Qué cambió o quedó listo?</span><textarea maxLength={180} value={draft.result} onChange={(event) => update('result', event.target.value)} /><small>{draft.result.length}/180</small></label>
             </div>
             <div className="evidence-source"><span>Tipo de evidencia simulada</span><strong>{draft.evidenceType}</strong></div>
-            <p className="privacy-note"><strong>No pegues datos reales.</strong> No uses nombres, teléfonos, correos, identificaciones, cuentas, contraseñas ni información de salud. Nada se guarda ni se envía.</p>
             <button className="primary-button" type="button" onClick={analyze}>Analizar evidencia <span aria-hidden="true">→</span></button>
             <p className="form-message" role="status" aria-live="polite">{message}</p>
           </div>
@@ -139,7 +141,7 @@ function App() {
                 <article key={claim.id} className="claim-card">
                   <span className="claim-kicker">Afirmación {index + 1} · IA simulada</span>
                   <p>{claim.statement}</p>
-                  <small>Fuente: campo “{claim.sourceField}” · {claim.evidenceType}</small>
+                  <small>Fuente: “{sourceLabel[claim.sourceField]}” · {claim.evidenceType}</small>
                 </article>
               ))}
             </div>
@@ -171,8 +173,8 @@ function App() {
                 <p className="eyebrow">Control de la persona</p>
                 <h2>Corrige antes de compartir.</h2>
                 <label className="correction-check"><input type="checkbox" checked={correctionRequested} onChange={(event) => setCorrectionRequested(event.target.checked)} /><span><strong>Solicito corregir este borrador.</strong><small>El registro exportado conservará esta señal.</small></span></label>
-                <button className="primary-button" type="button" onClick={downloadRecord}>Descargar registro JSON</button>
-                <p className="export-note">Se descarga en tu dispositivo. No se envía a una empresa ni se guarda en este sitio.</p>
+                <button className="primary-button" type="button" onClick={downloadRecord}>Guardar una copia de mi registro</button>
+                <p className="export-note">Se guarda en tu dispositivo como archivo .json, un formato que conserva la trazabilidad. No se envía a una empresa ni se guarda en este sitio.</p>
               </article>
             </div>
           </section>

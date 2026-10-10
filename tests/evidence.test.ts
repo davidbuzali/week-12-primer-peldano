@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { evidenceExamples, opening } from '../src/data.ts'
-import { analyzeEvidence, buildPortableRecord, buildSimulatedClaims, matchCriteria, recordHasAggregateScore, validateDraft } from '../src/logic.ts'
+import { analyzeEvidence, buildPortableRecord, buildSimulatedClaims, deriveEvidenceTags, matchCriteria, recordHasAggregateScore, validateDraft } from '../src/logic.ts'
 
 const daniela = evidenceExamples[0]
 
@@ -34,8 +34,16 @@ test('criterion matching is deterministic and cites evidence', () => {
   assert.ok(first.every((match) => match.evidenceClaimIds.length > 0))
 })
 
+test('matching follows the visible edited text instead of hidden seed tags', () => {
+  const generic = { ...daniela, task: 'Había algo pendiente', action: 'Ayudé con el trabajo', result: 'Lo terminamos' }
+  assert.deepEqual(deriveEvidenceTags(generic), ['resultado'])
+  const result = analyzeEvidence(generic, opening)
+  assert.ok(result.matches.every((match) => match.status !== 'sustentado'))
+  assert.equal(result.matches.filter((match) => match.status === 'faltante').length, 3)
+})
+
 test('partial and missing states expose the gap instead of inventing support', () => {
-  const sparse = { ...daniela, tags: ['cliente'] }
+  const sparse = { ...daniela, task: 'Atendí a un cliente', action: 'Ayudé', result: 'Listo', tags: ['cliente'] }
   const result = analyzeEvidence(sparse, opening)
   assert.equal(result.matches.find((match) => match.criterionId === 'cliente')?.status, 'parcial')
   assert.equal(result.matches.find((match) => match.criterionId === 'herramientas')?.status, 'faltante')
