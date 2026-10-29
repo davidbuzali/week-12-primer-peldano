@@ -14,6 +14,8 @@ test('public interface exposes the Week 12 authority boundaries', () => {
     'No verifica tu historia, no decide una contratación',
     'Supabase no configurado; el demo no guarda datos.',
   ]) assert.match(appSource, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+  assert.match(appSource, /useState<GateMode>\('blocked'\)/)
+  assert.match(appSource, /Abrir demo inventada/)
 })
 
 test('optional Supabase table is owner-scoped with RLS', () => {

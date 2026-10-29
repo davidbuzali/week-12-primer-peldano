@@ -25,3 +25,12 @@ The Week 9 history remains available in Git. Its last verified state used invent
 - Found and fixed the highest-severity mechanical defect: Vercel Authentication blocked anonymous visitors even though a HEAD request returned 200.
 - Assigned `https://primer-peldano-mx.vercel.app` as the venture URL of record and confirmed anonymous browser access.
 - Tomorrow's first move: correct the highest-risk usability ambiguity, rerun the full suite, and complete deployment 2.
+
+## Week 12 session close 3 - usability correction
+
+- Ran the live page at desktop and 390 x 844 mobile widths; no horizontal overflow occurred.
+- Found a high-risk comprehension flaw: the app opened directly into the invented commitment, so a hurried worker might mistake demonstration readiness for employer readiness.
+- Changed the default to the real stop-state and removed all evidence inputs until the visitor explicitly chooses `Abrir demo inventada`.
+- Renamed the gate controls so the real and invented states describe themselves without internal product language.
+- Recorded the walkthrough honestly as preliminary because it was not conducted in a fresh independent chat.
+- Next move: rerun all checks, deploy the fixed release, verify anonymous access, and preserve the fresh-chat persona pass as a remaining manual requirement.

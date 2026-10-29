@@ -22,7 +22,7 @@ const fieldLabels = {
 const sourceLabels = { task: 'necesidad', action: 'acción', result: 'resultado' } as const
 
 export default function VentureApp({ supabaseConfigured }: { supabaseConfigured: boolean }) {
-  const [gateMode, setGateMode] = useState<GateMode>('demo')
+  const [gateMode, setGateMode] = useState<GateMode>('blocked')
   const [selectedId, setSelectedId] = useState(evidenceExamples[0].exampleId)
   const selected = useMemo(() => evidenceExamples.find((item) => item.exampleId === selectedId) ?? evidenceExamples[0], [selectedId])
   const [draft, setDraft] = useState<EvidenceDraft>(selected)
@@ -109,8 +109,8 @@ export default function VentureApp({ supabaseConfigured }: { supabaseConfigured:
               <p className="mt-3 max-w-3xl leading-7 text-[var(--ink-soft)]">{showDemo ? opening.commitment.language : 'No pedimos trabajo, documentos ni datos a una persona hasta que un empleador publique los criterios y acepte evidencia nombrada para una vacante real.'}</p>
             </div>
             <div className="flex min-w-[250px] flex-col gap-2 rounded-2xl border border-black/10 bg-white/70 p-2" role="group" aria-label="Estado del compromiso">
-              <button className={`rounded-xl px-4 py-3 text-left text-sm font-extrabold ${showDemo ? 'bg-[var(--ink)] text-white' : 'text-[var(--ink)] hover:bg-white'}`} type="button" onClick={() => setGateMode('demo')}>Ver demo simulada</button>
-              <button className={`rounded-xl px-4 py-3 text-left text-sm font-extrabold ${!showDemo ? 'bg-[var(--red)] text-white' : 'text-[var(--ink)] hover:bg-white'}`} type="button" onClick={() => setGateMode('blocked')}>Ver bloqueo real</button>
+              <button className={`rounded-xl px-4 py-3 text-left text-sm font-extrabold ${showDemo ? 'bg-[var(--ink)] text-white' : 'text-[var(--ink)] hover:bg-white'}`} type="button" onClick={() => setGateMode('demo')}>Abrir demo inventada</button>
+              <button className={`rounded-xl px-4 py-3 text-left text-sm font-extrabold ${!showDemo ? 'bg-[var(--red)] text-white' : 'text-[var(--ink)] hover:bg-white'}`} type="button" onClick={() => setGateMode('blocked')}>Uso real: sin compromiso</button>
             </div>
           </div>
           <dl className="mt-6 grid gap-3 border-t border-black/10 pt-5 sm:grid-cols-3">
@@ -125,7 +125,7 @@ export default function VentureApp({ supabaseConfigured }: { supabaseConfigured:
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[var(--red-soft)] text-3xl text-[var(--red)]" aria-hidden="true">×</span>
             <h2 className="display mt-5 text-4xl font-semibold">No hay nada que llenar.</h2>
             <p className="mx-auto mt-3 max-w-xl leading-7 text-[var(--ink-soft)]">Detenerse protege el tiempo de la persona. El siguiente paso pertenece al empleador: verificar la vacante, publicar criterios y firmar qué evidencia aceptará.</p>
-            <button className="mt-6 rounded-xl bg-[var(--ink)] px-5 py-3 font-extrabold text-white" type="button" onClick={() => setGateMode('demo')}>Volver a la demostración</button>
+            <button className="mt-6 rounded-xl bg-[var(--ink)] px-5 py-3 font-extrabold text-white" type="button" onClick={() => setGateMode('demo')}>Abrir demo inventada</button>
           </section>
         ) : (
           <>

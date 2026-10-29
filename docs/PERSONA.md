@@ -1,66 +1,78 @@
-# Persona test log - Primer Peldaño
+# Week 12 preliminary persona walkthrough - Primer Peldaño
 
-**Test date:** 10 October 2026  
-**Builds:** first and fixed production deployments  
-**Method:** a fresh, self-contained persona prompt was applied to the live screen sequence in a narrow mobile-sized browser. Each screen was read in order and the persona narrated where she would hesitate, misunderstand, or leave. No real person's data was used.
+**Date:** 29 October 2026
 
-## Synthetic user
+## Integrity note
 
-**Daniela R. (invented), 22, Mexico City.** Daniela sells desserts from home with her family. She coordinates orders through WhatsApp, trusts people more than unfamiliar platforms, reads carefully on her phone, and silently abandons a process when it hides requirements or asks for information she does not understand. She worries that informal work “doesn't count” and does not know what a structured evidence record or JSON file is.
+This is a preliminary, developer-run heuristic walkthrough using a synthetic persona. It did **not** occur in a fresh independent chat and therefore must not be presented as the course's completed Layer 1 persona test. It is useful for finding obvious comprehension risks before a real or independently simulated user sees the product. A fresh-chat transcript or consented worker test remains required for the final submission claim.
 
-Persona prompt:
+## Synthetic persona
 
-> You are Daniela R., 22, an invented worker in Mexico City who helps a family dessert business. You use WhatsApp daily but distrust unfamiliar hiring platforms. Read slowly and narrate what you think each screen is asking, where you hesitate, what you fear could happen to your information, and the exact point where you would quit. Do not be polite to the product. Do not invent capabilities you cannot see.
+**Rogelio A. (invented), 52, Estado de México.** Rogelio has worked in maintenance and textile operations through informal arrangements. He uses WhatsApp, reads slowly on his phone, distrusts hiring platforms, and leaves a process when it appears to demand unpaid work or hide who will see his information. He worries that his experience “no cuenta” because the workplace was unfamiliar to employers.
 
-## Screen-by-screen log
+He is not the reported real worker and contains no real person's data.
 
-### Screen 1 - promise and employer gate
+## Screen-by-screen walkthrough
 
-What Daniela understood: “This says my real work may count even if it was not a formal job.”
+### 1. Venture promise and boundary
 
-Hesitation: “Is Empresa Horizonte real? Am I already applying?”
+Likely understanding: “This wants to help describe work I already did, not send me to another course.”
 
-Evidence on screen: the opening, employer, date, and commitment are repeatedly marked simulated or invented, and the boundary card says the prototype does not verify or hire.
+Likely hesitation: “Does this system decide whether I am qualified?”
 
-Decision: keep the explicit labels. The screen makes the product's strongest condition visible before asking for evidence.
+Visible answer: the hero says the system does not verify the story, decide a hire, or complete missing evidence. `Sin puntaje global` appears before the analysis.
 
-### Screen 2 - choose and edit existing work
+### 2. Employer commitment gate
 
-What Daniela understood: “I can start from an example like my dessert orders.”
+Highest-risk confusion in the first build: the page opened in demo mode and displayed editable evidence fields below an invented commitment. A hurried user could scroll past the words `simulado` and assume that an employer was ready to receive the record.
 
-Confusion: the warning not to use real personal data appeared after the text fields. Daniela could begin typing client names or phone numbers before seeing it.
+Fix applied:
 
-Where she might quit: if the first error used the internal word `task`, she would assume the system was not made for her.
+- the default page state is now the real stop-state;
+- no evidence fields exist in that state;
+- the active option says `Uso real: sin compromiso`;
+- the only way to continue is an explicit `Abrir demo inventada` action;
+- the stop-state assigns the next action to the employer, not the worker.
 
-Fix applied: moved the invented-data/privacy instruction above the fields and replaced all internal field keys in errors with the exact Spanish question shown on screen.
+### 3. Invented evidence entry
 
-### Screen 3 - evidence map
+Likely understanding: “I can practice with an example and change the description.”
 
-What Daniela understood: “The green cards mean the story connects to what the employer asked for.”
+Likely fear: “Will this send my information somewhere?”
 
-Critical failure found: after all three fields were changed to vague text, every card still said `Sustentado`. Daniela's reaction: “Then it is just telling me what I want to hear. I would not trust this.”
+Visible answer: the privacy instruction appears before all fields; it prohibits names, contact details, identifiers, accounts, passwords, and health data. The footer says Supabase is not configured and the demo stores nothing. An email entered during browser QA was blocked.
 
-Fix applied: matches now come only from signals in the visible edited text. After the fix, the vague version produces three missing criteria and one partial criterion. Reasons use plain Spanish rather than hidden tag names.
+### 4. Criterion map
 
-### Screen 4 - human review and copy
+Likely understanding: green means the visible story supports a criterion, amber means something is missing, and red means there is no visible evidence.
 
-What Daniela understood: “A person will still ask me how I did the work.”
+Integrity challenge: replacing the specific example with generic text produced three `Sin evidencia` states and one `Parcial`; the product did not preserve hidden support.
 
-Confusion: “Descargar registro JSON” sounded technical and did not say where the file went or whether the employer received it.
+Likely hesitation: “Does green mean they will hire me?”
 
-Fix applied: renamed the action to “Guardar una copia de mi registro” and explained that `.json` is a traceable file saved only on the device, not sent to an employer or stored by the site.
+Visible answer: the result says it organizes only what was declared and cannot verify truth, fairness, vacancy existence, or a hiring decision. Human review remains required.
 
-## Confusion register
+### 5. Correction and export
+
+Likely understanding: “I can mark that I want a correction and save my own copy.”
+
+Visible answer: the export is labeled `.json` but explained in plain language as a copy saved on the device, not sent to an employer or stored by the site.
+
+## Preliminary confusion register
 
 | Priority | Confusion | Risk | Resolution |
 |---|---|---|---|
-| 1 | Green support survived after evidence text was erased | False trust and invalid evidence | Rebuilt matching from visible text and added a regression test |
-| 2 | Privacy warning arrived after editable fields | Accidental personal-data entry | Moved the warning above all fields |
-| 3 | Errors and provenance used `task`, `action`, `result` | Language mismatch and abandonment | Replaced with the Spanish screen questions |
-| 4 | `JSON` export sounded like a developer task | Unclear next action | Renamed action and explained local file behavior |
+| 1 | Invented commitment was active by default | Worker mistakes a demonstration for employer readiness | Default to blocked real-use state; require explicit demo choice |
+| 2 | A 200 HEAD response masked Vercel login protection | Grader or worker cannot open the URL | Remove project authentication and verify anonymous browser navigation |
+| 3 | Simulated examples could invite real data entry | Accidental disclosure | Put privacy boundary before fields, block sensitive patterns, store nothing |
+| 4 | Criterion color could be read as a hiring verdict | False confidence | Repeat no-score and human-review boundaries; preserve missingness |
 
 ## Retest verdict
 
-Daniela can now identify that the opening is simulated, begin with an invented example, see the privacy boundary before typing, understand why evidence is supported or missing, and save a copy without believing it was submitted. The worst confusion - unsupported green results - was fixed before the deadline and verified on the second production deployment.
+The revised first screen now stops before evidence by default and makes the invented demo an explicit choice. The live browser also demonstrated sensitive-data rejection, visible-text recalculation, correction control, and mobile layout without horizontal overflow.
 
-Remaining concern: a real test must use actual workers and employers, with consent, accessible language review, and independent verification that the employer honors the commitment. A synthetic persona can expose friction but cannot validate market behavior or lived experience.
+This is not evidence that Rogelio or a real worker would understand, trust, or benefit from the product. The remaining Layer 1 task is to run the screen sequence in a fresh chat with the persona prompt below, preserve the transcript, and fix any higher-severity confusion it discovers.
+
+## Prompt for the required fresh-chat pass
+
+> You are Rogelio A., an invented 52-year-old worker in Estado de México. You have decades of maintenance and textile-operations experience from informal arrangements, use WhatsApp, read slowly on your phone, distrust hiring platforms, and abandon processes that demand unpaid work or hide who will see your information. I will show you Primer Peldaño one screen at a time. Attempt the task as Rogelio. Narrate what you think each screen means, what you fear, every word you do not understand, and the exact point where you would leave. Do not be polite to the product and do not invent capabilities you cannot see.
