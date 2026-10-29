@@ -1,62 +1,44 @@
-# Implementation prompt - Primer Peldaño
+# Week 12 implementation prompt - Primer Peldaño
 
-Build the Week 9 working slice described in `docs/PACKET.md` as a polished, responsive React + TypeScript + Vite web app in Spanish.
+Rebuild the existing Primer Peldaño prototype from the Week 12 Product Charter. Preserve the venture's strongest Week 9 behavior - criterion-level evidence, transparent missingness, worker correction, local export - while making the employer-commitment gate the first interaction and upgrading to the required free stack.
 
-## Product contract
+## Build order
 
-The app must help a young worker translate **existing, invented informal work** into criterion-level evidence for one invented `Auxiliar de operaciones` opening. It is not a CV builder, job board, course, test, or new work assignment. Before evidence collection, show a simulated employer commitment to accept named proof instead of one year of prior experience. Use a labeled deterministic simulated-AI layer and transparent matching logic. Require human review and never rank a candidate or promise employment.
+1. **Charter and packet:** commit `PRODUCT_CHARTER.md`, `PACKET.md`, the image-generated mockup, flowchart, swimlane, architecture table, test plan, and this implementation prompt before product code.
+2. **Framework and gate:** migrate to Next.js/React/TypeScript and Tailwind; render the venture identity, simulated-data boundary, one opening, and an explicit absent/simulated/real commitment state.
+3. **Core map:** implement bounded evidence fields, deterministic visible-text signals, criterion-level supported/partial/unresolved results, provenance, correction, and local JSON export.
+4. **Data boundary:** add an optional Supabase client boundary that activates only when public environment variables exist. Do not store demo or personal data. Document the RLS requirement for any future persistence.
+5. **Mechanical test and first deploy:** add unit and rendered-output tests, run the production build, deploy to Vercel, and verify the URL.
+6. **Persona/QA fix and final deploy:** test the screen sequence, document at least one defect, fix the highest-risk issue, rerun checks, redeploy, and update submission evidence honestly.
 
-## Features
+## Required behavior
 
-1. **Opening gate**
-   - Display the invented opening, opening ID, four criteria, issuer, acceptance date, and commitment language.
-   - Mark every identity and status as simulated.
-   - Explain that without a real commitment the production process must stop.
+- Default to `demo` commitment state with invented opening and evidence records.
+- Explain that production use stops without a real, dated acceptance commitment.
+- Validate three fields for presence, length, and sensitive-looking content before mapping.
+- Derive all criterion signals from the current visible text. Never keep hidden seed tags after edits.
+- Return exactly three states: `supported`, `partial`, and `unresolved`.
+- Cite only visible evidence claims in supported/partial states.
+- Offer a correction loop and a minimized local export.
+- Never show or calculate an aggregate score, rank, match percentage, employment probability, or recommendation.
+- Keep the application usable by keyboard and at narrow mobile widths.
 
-2. **Structured evidence intake**
-   - Offer three invented work examples and prefill a safe scenario.
-   - Allow bounded edits to a task, action, result, and evidence type.
-   - Validate required fields, maximum lengths, and common sensitive-data patterns.
-   - Store nothing after the tab closes.
+## Testable acceptance criteria
 
-3. **Simulated-AI evidence draft**
-   - Convert the structured fields into concise claims without inventing facts.
-   - Label the output “IA simulada” wherever it appears.
-   - State the uncertainty and what still needs human verification.
-
-4. **Criterion matching**
-   - Compare evidence tags with the published criterion requirements.
-   - Return `sustentado`, `parcial`, or `faltante` with a plain-language reason.
-   - Cite the supporting evidence item for every positive match.
-   - Do not compute an aggregate score.
-
-5. **Review and portability**
-   - Show a four-question human walkthrough.
-   - Let the worker mark a claim for correction.
-   - Download a minimized JSON record with schema version, simulated-data flag, commitment, claims, matches, provenance, and correction state.
-
-6. **Narrative and boundaries**
-   - Include a concise “why this exists” section tied to Mexico's first-rung problem.
-   - Name the 90-day formal-employment checkpoint as the future outcome, not a current result.
-   - State that the prototype does not verify identity, truth, authorship, fairness, a vacancy, or a hire.
-
-## Acceptance criteria
-
-- TypeScript compiles and the Vite production build succeeds.
-- Unit tests cover validation, deterministic claims, status logic, no aggregate score, and minimized export.
-- The flow works without API keys, database, authentication, or network calls.
-- No real personal data or real company names appear in seeds.
-- Inputs have labels, errors are announced, focus moves to results, and contrast/focus states are visible.
-- The design is distinct, calm, and credible: warm paper background, navy typography, terracotta actions, teal verification accents, and a subtle stair motif.
-- Mobile layouts remain usable at 360px.
+- Empty and sensitive-looking fields fail validation with the same Spanish wording shown in the interface.
+- Replacing specific evidence with generic text removes prior support.
+- Identical input produces identical states and reasons.
+- Every non-unresolved criterion contains at least one provenance reference.
+- The export excludes names, contact fields, credentials, and environment values.
+- The page source includes `Prototipo - datos inventados`, `Sin puntaje global`, and the commitment boundary.
+- `pnpm test`, `pnpm lint`, and `pnpm build` pass.
+- The verified production URL returns HTTP 200.
 
 ## Commit plan
 
-1. `docs: define Week 9 first-proof packet`
-2. `feat: scaffold Primer Peldaño evidence workflow`
-3. `feat: add explainable proof matching and export`
-4. `test: validate evidence safety and matching`
-5. `fix: address mechanical and persona test findings`
-6. `docs: finalize Week 9 submission artifacts`
-
-Deploy after commit 4, run both test passes, fix the worst observed issue, then deploy again.
+1. `docs: charter the Week 12 venture rebuild`
+2. `chore: migrate Primer Peldaño to the Week 12 stack`
+3. `feat: build the criterion-level evidence map`
+4. `test: verify the Week 12 core workflow`
+5. `fix: resolve the highest-risk usability defect`
+6. `docs: finalize Week 12 deployment evidence` (only if deployment records require a separate commit)

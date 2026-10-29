@@ -1,27 +1,16 @@
 # Decision log - Primer Peldaño
 
-## Session close 1 - packet before code
+## Week 12 session close 1 - charter before rebuild
 
-- Chose the Blueprint's FIRST-PROOF vacuum rather than building a paid micro-project marketplace.
-- Exact slice: translate existing informal work into criterion-level evidence for one employer-accepted opening.
-- Selected Opportunity@Work's STARs work as the global benchmark and localized it to a pre-commitment gate in Mexico.
-- Preserved the shadow clause: no CV, job board, unpaid audition, opaque ranking, debt, or enrollment-as-success.
-- Created the image-generated mockup, flowchart, swimlane, stack table, test plan, and implementation prompt before code.
-- Tomorrow's first move: scaffold the acceptance gate and invented evidence examples.
+- Ratified the conditional Week 12 choice: Primer Peldaño, sourced from Week 9 and distinct from the teammates' named chapters.
+- Bound the core build to one employer-commitment gate and one criterion-level evidence map.
+- Kept the reported October 2026 worker story out of the public demo until consent is documented.
+- Preserved the Blueprint shadow clause: no automatic verdict, global score, ranking, verification claim, or hidden repair of missing evidence.
+- Chose a Next.js + React + Tailwind + Vercel + GitHub stack with an optional Supabase boundary; no public demo data will be stored.
+- Re-verified Opportunity@Work and OECD as primary benchmark sources.
+- Prohibited any 10:1 claim until the same task is measured on comparable time, cost, or review probability.
+- Tomorrow's first move: migrate the existing Week 9 interface and put the commitment state before all evidence interaction.
 
-## Session close 2 - first working slice
+## Prior Week 9 close
 
-- Built a responsive React/TypeScript/Vite interface in Spanish.
-- Added one simulated opening, written acceptance commitment, four published criteria, and three invented work examples.
-- Added bounded validation, labeled simulated-AI claims, deterministic matching, human walkthrough, correction state, and local JSON export.
-- Added six automated tests and completed the first production deployment.
-- Tomorrow's first move: challenge the visible evidence and run the synthetic persona.
-
-## Session close 3 - test, fix, redeploy
-
-- Found a high-severity integrity defect: editing away the evidence did not remove hidden support tags.
-- Rebuilt matching to derive signals from the visible text and trace only relevant claims.
-- Moved the privacy instruction before the fields and removed internal English labels from the interface.
-- Renamed the technical export action and explained the local `.json` file.
-- Seven tests pass; production build passes; second deployment is live; portable export works.
-- Next move: obtain a real employer's written proof-acceptance commitment before any live worker pilot.
+The Week 9 history remains available in Git. Its last verified state used invented data, deterministic matching, seven passing tests, and a public Vercel demo. Week 12 does not reuse its simulated employer commitment as real-world evidence.

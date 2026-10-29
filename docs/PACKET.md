@@ -1,56 +1,44 @@
-# Primer Peldaño - Week 9 build packet
+# Week 12 Venture Packet - Primer Peldaño
 
-**Owner:** David Buzali  
-**Course:** Business Bending, Week 9 - When the work goes away and the first rung disappears  
-**Blueprint vacuum:** FIRST-PROOF  
-**Status:** packet before code
+## Packet before code
 
-## The problem, in my words
+This packet was finalized before the Week 12 rebuild. The binding product decisions live in [PRODUCT_CHARTER.md](./PRODUCT_CHARTER.md).
 
-A young person in Mexico can already have done demanding, useful work - selling food, coordinating family-business orders, organizing community logistics - and still be filtered out of an entry-level opening because that work is informal and therefore illegible to an employer. Another course, certificate, or unpaid audition does not solve the filter. The missing first rung is an employer-approved way to turn work that already happened into criterion-level evidence for one real opening.
+## Problem in my words
 
-Primer Peldaño tests that bridge. It asks an employer to declare, before a worker invests effort, which evidence it will accept instead of prior formal experience. It then helps the worker structure existing work, maps that evidence to the declared criteria, exposes gaps, and prepares a portable record for a short human walkthrough. AI assists with organization and plain language; it does not certify truth, authorship, fairness, or employability.
+People can perform useful work for decades and still be rejected because the proof comes from an informal, unfamiliar, or uncertified setting. The product problem is not to generate a better CV or to award a score. It is to make one employer say, in advance, what evidence it will accept for one opening, then help the worker present only the evidence that actually supports those criteria.
 
 ## Exact user
 
-Daniela is 22, lives in Mexico City, and helps sell desserts from home. She coordinates orders through WhatsApp, handles changes, tracks deliveries, and has improved how products are presented. She reads comfortably on a phone but has never translated that work into employer language. She is applying to one invented, verified **Auxiliar de operaciones** opening whose employer has agreed, for this simulated pilot, to accept specified evidence instead of one year of prior formal experience.
-
-Secondary actor: a hiring manager who needs a transparent, auditable way to review the same criteria for every candidate without adding an unpaid work test.
+An experienced worker in Mexico whose existing work is overlooked because it lacks familiar credentials or employer provenance. The reported current case informs the need, but the public prototype uses invented records until consent and an employer acceptance commitment exist.
 
 ## Success definition
 
-Before the module closes, a person using the live URL can:
-
-1. Select an invented work example without entering personal data.
-2. See the employer's simulated proof-acceptance commitment before doing any work.
-3. Run a labeled simulated-AI analysis that maps structured evidence to every published criterion.
-4. Understand why each criterion is supported, partial, or missing, including the limits of the evidence.
-5. Prepare a portable JSON record and a human-walkthrough checklist without creating a global score or promise of employment.
-
-Success for this week's slice is **workflow completion and explainability**, not a hire. The 90-day formal-employment outcome remains the product-level success metric and cannot be claimed by this prototype.
+Before the Week 12 module closes, the public Primer Peldaño URL lets a visitor complete one invented flow: inspect a simulated employer commitment, edit bounded work evidence, map visible evidence to four published criteria, see supported / partial / unresolved states, inspect provenance, correct the record, and export a local copy. The same input must always produce the same result, and no output may contain a global score or hiring prediction.
 
 ## Image-generated mockup
 
-The following screen was generated with OpenAI image generation before implementation. It is a direction-setting mockup, not evidence that the feature works. All people, companies, openings, and records shown are invented.
+The following direction-setting mockup was generated before implementation. It is not evidence that the feature works. It uses invented content and deliberately foregrounds the commitment gate, criterion states, worker control, and the absence of a global score.
 
-![Image-generated Primer Peldaño dashboard concept](assets/primer-peldano-mockup.png)
+![Image-generated Week 12 Primer Peldaño evidence-map mockup](assets/primer-peldano-week12-mockup.png)
 
 ## Feature flow
 
 ```mermaid
 flowchart TD
-    A[Open Primer Peldaño] --> B[Read simulated employer commitment]
-    B --> C{Employer accepts proof instead of experience?}
-    C -- No --> X[Stop: do not ask worker for evidence]
-    C -- Yes --> D[Choose invented existing-work example]
-    D --> E[Validate structured fields and limits]
-    E --> F[Simulated AI extracts bounded claims]
-    F --> G[Matching logic maps claims to published criteria]
-    G --> H[Show supported, partial, and missing evidence]
-    H --> I[Worker corrects or removes claims]
-    I --> J[Prepare human walkthrough]
-    J --> K[Export portable JSON record]
-    K --> L[Employer reviews evidence under published rubric]
+    A[Open Primer Peldaño] --> B[Read opening and employer commitment state]
+    B --> C{Employer accepted named evidence?}
+    C -- No or absent --> X[Stop: do not ask worker for live evidence]
+    C -- Simulated demo --> D[Load invented record only]
+    C -- Real and dated --> E[Begin consented evidence session]
+    D --> F[Validate bounded fields]
+    E --> F
+    F --> G[Derive transparent evidence signals]
+    G --> H[Map signals to published criteria]
+    H --> I[Show supported / partial / unresolved]
+    I --> J[Inspect provenance and missing evidence]
+    J --> K[Worker corrects or withholds]
+    K --> L[Export local portable record]
 ```
 
 ## Actor swimlane
@@ -58,109 +46,90 @@ flowchart TD
 ```mermaid
 flowchart LR
     subgraph Employer
-      E1[Declare a verified opening]
-      E2[Publish criteria]
-      E3[Accept evidence instead of prior experience]
-      E4[Review under the same rubric]
+      E1[Verify one opening]
+      E2[Publish criteria and accepted proof]
+      E3[Commit before worker effort]
+      E4[Human review under same rubric]
     end
     subgraph Worker
-      W1[Choose existing work]
-      W2[Confirm or correct claims]
-      W3[Walk through decisions and limits]
-      W4[Control and export record]
+      W1[Give consent]
+      W2[Describe existing work]
+      W3[Correct or withhold]
+      W4[Export controlled record]
     end
     subgraph System
-      S1[Validate bounded structured input]
-      S2[Match evidence to criteria]
-      S3[Explain gaps and provenance]
-      S4[Prepare portable packet]
-    end
-    subgraph AI
-      A1[Draft concise evidence statements]
-      A2[Flag uncertainty]
+      S1[Validate bounded input]
+      S2[Map visible evidence]
+      S3[Keep missingness visible]
+      S4[Preserve provenance]
     end
 
     E1 --> E2 --> E3 --> W1
-    W1 --> S1 --> A1 --> S2 --> A2 --> S3 --> W2
-    W2 --> W3 --> S4 --> W4 --> E4
+    W1 --> W2 --> S1 --> S2 --> S3 --> S4 --> W3 --> W4 --> E4
 ```
 
 ## Benchmark line
 
-**Best existing solution on Earth:** Opportunity@Work's STARs ecosystem is the strongest benchmark because it combines research, employer practice change, and tools that make skills learned through alternative routes visible instead of relying on degrees alone ([Opportunity@Work](https://www.opportunityatwork.org/), [Government as Employer Playbook](https://www.opportunityatwork.org/take-action/psh/government-as-employer-playbook)).
+**Best existing solution on Earth:** Opportunity@Work's STARs ecosystem is the strongest benchmark for changing employer practice around workers Skilled Through Alternative Routes; its skills-first guidance begins with removing unnecessary credential filters, articulating skills, and evaluating candidates on those skills.
 
-**How mine differs or localizes:** Primer Peldaño narrows that system change to one Mexico-localized transaction: before evidence is prepared, one employer must accept named proof in place of prior experience for one verified opening; the worker reuses existing work first, controls the record, and never receives a global rank.
+**How Primer Peldaño differs or localizes:** it narrows that systemic change to one Mexico-localized transaction: before a worker prepares evidence, one employer must accept named proof in place of prior formal experience for one opening; the worker reuses existing work, controls the record, and never receives a global rank.
 
-The OECD's 2026 review reinforces the design choice: work-sample tests are more predictive than years of similar experience, yet validation and employer trust remain major adoption obstacles ([OECD, A Skills-First Labour Market](https://www.oecd.org/en/publications/a-skills-first-labour-market_2e1b85f0-en/full-report/promoting-skills-first-hiring-and-talent-management_81392a48.html)).
+The OECD's 2026 skills-first work supports the translation problem: workers struggle to describe capabilities in terms employers interpret reliably, while employers continue to use indirect proxies such as titles, years of experience, and credentials.
+
+Primary sources:
+
+- [Opportunity@Work - Implement skills-first hiring](https://www.opportunityatwork.org/topics/skills-first-hiring)
+- [Opportunity@Work - Government as Employer Playbook](https://www.opportunityatwork.org/take-action/psh/government-as-employer-playbook)
+- [OECD - Building a common skills language](https://www.oecd.org/en/publications/a-skills-first-labour-market_2e1b85f0-en/full-report/building-a-common-skills-language_8148eb1f.html)
 
 ## Three-year long view
 
-If this slice works, Primer Peldaño becomes shared infrastructure through which universities, employers, and community organizations translate existing informal work into worker-controlled, signed evidence for real openings. Employers publish reusable criterion templates and acceptance commitments, while independent reviewers audit quality, appeals, labor treatment, and 90-day formal-employment outcomes. The product succeeds only if it expands mobility without turning candidates into unpaid test workers or reducing complex people to opaque scores.
+If this slice works, Primer Peldaño becomes shared infrastructure through which employers, universities, and community organizations translate existing informal work into worker-controlled evidence for real openings. Employers publish reusable criterion templates and acceptance commitments, while independent reviewers audit quality, appeals, labor treatment, and 90-day employment outcomes. The product succeeds only if it expands mobility without turning candidates into unpaid test workers or reducing people to opaque scores.
 
 ## Scope cut
 
-This week does **not** build:
+This week does not build a CV builder, job board, candidate marketplace, ranking, credential, identity-verification service, background check, payroll flow, hiring decision, new work assignment, course, unpaid audition, or production LLM. It does not publish the reported worker's story or assert that an employer has committed. It does not claim 10:1 value.
 
-- a CV builder, job board, application marketplace, or candidate ranking;
-- a new work project, internship, course, certificate, or unpaid audition;
-- real employer, worker, IMSS, university, or identity verification;
-- authentication, a database, background checks, payroll, or hiring decisions;
-- a prediction of displacement, job success, authorship, or 90-day retention;
-- a production LLM integration or claim that simulated output is intelligent.
+## Architecture and free stack
 
-## Blueprint conditions and shadow clause
-
-| Blueprint condition | This slice's implementation |
-|---|---|
-| User fit | Starts from existing work; all examples are invented; no travel or forgone earnings required. |
-| Employer filter | Shows a simulated written commitment before evidence collection and publishes the four criteria. The app stops conceptually if that commitment is absent. |
-| Payer and outcome | Employer is the hypothesized payer. The interface names the 90-day formal-employment checkpoint but claims no ROI or hire. |
-| Shadow clause | No rescue simulation, enrollment metric, new audition, debt, or global rank. Worker can correct, omit, and export the record. |
-| Technology honesty | AI output is explicitly simulated. Matching is deterministic and explainable. Human review remains required. |
-| Operational stop | One opening, no new projects, no live work, no repeated auditions. Production must verify labor classification before any paid slice. |
-
-## Architecture and stack
-
-| Layer | Choice | Why |
+| Layer | Choice | Boundary |
 |---|---|---|
-| Interface | React 19 + TypeScript + Vite | Fast, accessible, responsive static slice. |
-| LLM layer | Deterministic simulated-AI claim drafting | Demonstrates the interaction without a secret, cost, or false production claim. |
-| Structured / verified data | Versioned invented opening, criteria, issuer, acceptance commitment, and evidence provenance | Makes every output traceable; “verified” describes the schema and simulated issuer state, not real-world truth. |
-| Additional Dragon Stack layer | Transparent criterion matching | Maps evidence tags to published criteria and explains supported, partial, or missing status. |
-| Portability | Browser-generated JSON download | Worker controls a local record; nothing is uploaded or stored. |
-| Security | No secrets, no database, no accounts, strict length/type validation, invented data only | Avoids collecting personal data and meets the Week 9 security floor for the prototype. |
-| Hosting | Vercel static deployment | Free public URL and repeatable deployment. |
-
-## Data model
-
-Each record includes: schema version; invented worker and opening IDs; employer acceptance commitment; published criteria; evidence items with type and provenance; bounded AI-drafted claims; deterministic matches and reasons; unresolved gaps; human-review state; correction history; and an explicit simulated-data flag. It excludes phone numbers, emails, government IDs, addresses, passwords, financial details, health data, and free-form uploads.
+| App | Next.js + React + TypeScript | One responsive public flow, server-rendered shell, client-side interaction. |
+| Styling | Tailwind CSS | Accessible design tokens and responsive layout. |
+| Data | Supabase client boundary | Optional opening/commitment persistence only after RLS and environment configuration; public demo does not store data. |
+| Logic | Deterministic TypeScript rules | Transparent mapping from visible evidence; no prediction or global score. |
+| Hosting | Vercel | Public venture-identity URL and repeatable production deployments. |
+| Source | GitHub | Minimum five auditable Week 12 commits. |
+| Security | Invented demo data, input limits, sensitive-pattern blocking, no secret in repository | No personal data is accepted or stored in the public demo. |
 
 ## Test plan
 
 ### Mechanical pass
 
-1. Run unit tests for validation, claim extraction, criterion matching, and export minimization.
-2. Run the production build with TypeScript checks.
-3. Confirm the first deploy works at its public URL.
-4. Complete the entire Daniela flow on desktop and mobile-sized layouts.
-5. Intentionally find and document at least one defect, fix it, rerun tests, and redeploy.
-6. Confirm no repository file contains a secret and no UI claim implies a real employer, real verification, guaranteed hire, or production LLM.
+1. Unit-test required fields, length limits, sensitive-pattern blocking, deterministic mapping, provenance, and minimized export.
+2. Run type checking, lint, and the production build.
+3. Deploy the first working slice and verify the public URL.
+4. Complete the flow at desktop and mobile widths; find and document at least one defect.
+5. Fix the defect, rerun all checks, redeploy, and verify the final URL.
+6. Scan tracked files for secrets and unsupported claims.
 
 ### Persona pass
 
-Use a fresh chat with **Daniela, 22**, an invented Mexico City informal food seller who uses WhatsApp daily, distrusts unfamiliar hiring platforms, reads carefully but abandons tasks when requirements feel hidden, and worries that her work “doesn't count.” Show the persona each screen in order, record every hesitation, and fix the highest-severity confusion before the final deploy.
+Use a fresh synthetic persona based on an invented mid-career worker who reads slowly on a phone, uses WhatsApp, distrusts hiring platforms, and worries that informal work does not count. Show each screen in order, record every hesitation, and fix the highest-severity confusion. Do not claim this substitutes for a real worker test.
 
-### Acceptance criteria
+## Acceptance criteria
 
-- A user cannot run the analysis with missing required fields or over-length text.
-- The acceptance commitment and the simulated-data label appear before the action button.
-- The same input always produces the same match statuses and reasons.
-- No output includes a global candidate score or employment prediction.
-- Every supported claim cites at least one evidence item; every missing criterion names what is missing.
-- The portable export contains only the invented example, structured claims, matches, and provenance.
-- Keyboard focus reaches the result after analysis; controls have accessible labels and visible focus states.
-- The final public URL returns the tested production build.
+- The commitment state is visible before evidence input.
+- A missing real commitment blocks any implied live-worker use; the demo is labeled simulated.
+- Empty, over-length, or sensitive-looking text cannot be analyzed.
+- Statuses derive only from visible evidence and update after edits.
+- Every supported or partial result cites visible provenance.
+- Every unresolved criterion names what is missing.
+- No aggregate candidate score, rank, recommendation, certification, verification, or hire prediction appears.
+- The worker can correct the input and export a local record.
+- Supabase remains disabled unless its public configuration exists; no service secret is shipped.
+- The final Vercel URL returns the tested production build.
 
-## Kill criteria
+## Unresolved gates
 
-Do not proceed to a real pilot if employers will not sign acceptance commitments before workers prepare evidence; if reviewers cannot apply the rubric consistently; if workers cannot correct or withhold the record; if the evidence process becomes longer than the application it replaces; or if measured hiring outcomes are reduced to enrollment, completion, or certificate counts.
+The employer commitment, consented worker evidence, comparable 10:1 measurement, and actual human review remain unresolved. They are the next decisive field test, not claims the software can manufacture.
