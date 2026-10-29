@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #102d3f;
+  --ink-soft: #365362;
+  --paper: #f4f0e8;
+  --panel: #fffdf8;
+  --line: #d9d5cc;
+  --teal: #147c75;
+  --teal-soft: #dff1eb;
+  --amber: #b9691d;
+  --amber-soft: #f7ead4;
+  --red: #a33d3d;
+  --red-soft: #fae7e3;
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --font-display: Iowan Old Style, Baskerville, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+button, textarea { font: inherit; }
+button:focus-visible, textarea:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 3px solid #0d7f78;
+  outline-offset: 3px;
+}
+.display { font-family: var(--font-display), Georgia, serif; }
+.paper-grid {
+  background-image: linear-gradient(rgba(16, 45, 63, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 45, 63, .035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
