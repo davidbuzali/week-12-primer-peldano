@@ -1,83 +1,67 @@
-# Testing log - Primer Peldaño
+# Week 12 testing log - Primer Peldaño
 
-## Release under test
+**Test date:** 29 October 2026, America/Mexico_City
 
-- Repository: https://github.com/davidbuzali/week-9-primer-peldano
-- Production alias: https://week-9-first-rung.vercel.app
-- First production deployment: `3YM2J37TdjFDijK5zzJq9LwG1p8j`
-- Fixed production deployment: `4ib25vxRPZ6bxakDMWXPb2rU37QZ`
-- Test date: 10 October 2026, America/Mexico_City
+**URL of record:** https://primer-peldano-mx.vercel.app
+
+**First ready deployment:** `dpl_4exL42rt5wKZ6D2YvGXHSc4ARM8k`
 
 ## Mechanical pass 1
 
 ### Automated checks
 
-`node --experimental-strip-types --test tests/*.test.ts`
+- `pnpm typecheck`: passed.
+- `pnpm lint`: passed with zero warnings.
+- `pnpm test`: seven logic tests passed, zero failed.
+- `pnpm build`: Next.js 16 production build passed with a statically rendered `/` route.
 
-- 6 tests passed, 0 failed before the first deployment.
-- Covered required input, length limits, sensitive-data patterns, deterministic simulated claims, supported/partial/missing matching, evidence citations, minimized export, and the absence of an aggregate score.
+The logic suite covers required fields, length limits, sensitive-looking input, deterministic claim construction, visible-text matching, supported/partial/missing states, provenance, minimized export, and the absence of an aggregate score.
 
-`tsc -b && vite build`
+### First deployment attempt and defect
 
-- TypeScript completed without errors.
-- Vite produced the static production bundle.
+The first Vercel upload reached the linked Week 9 project but failed because the project still expected the former Vite `dist` output. The code had migrated to Next.js, which produces `.next`. The durable project configuration now declares `framework: nextjs` and `outputDirectory: .next` in `vercel.json`; the Vercel project settings were aligned to the same values and Node 22.
 
-Anonymous production request:
+A second upload produced the first ready Week 12 deployment and assigned both the legacy production alias and the venture-identity alias.
 
-- `https://week-9-first-rung.vercel.app` returned HTTP 200.
-- The stable production alias was publicly accessible; the generated deployment URL remained protected by Vercel's standard protection.
+### High-severity mechanical bug found
 
-### Browser walk-through
+**An anonymous browser was redirected to Vercel login.** An HTTP HEAD request returned 200, but a real navigation exposed project-level Vercel Authentication. This violated the Blueprint's URL-of-record condition: the company's door did not open for a grader or user.
 
-The first production build was opened at the stable URL in a narrow mobile-sized browser. The Daniela example completed the flow, focused the result, opened the human-review questions, and downloaded the portable JSON file.
+**Cause:** the linked project had `ssoProtection.deploymentType = all_except_custom_domains`. A `.vercel.app` alias was still protected even though it was assigned to the production deployment.
 
-Security validation was exercised by replacing the task with `persona@example.com`. The interface blocked analysis and explained that the field appeared to contain sensitive data.
+**Fix:** removed Vercel Authentication for this public coursework project only. The project contains no secrets or personal data, the demo writes no records, and previews do not expose user information. The project remains on HTTPS; source/log protection and Git-fork protection were not disabled.
 
-## Bug found
+**Verification:** an anonymous in-app browser loaded `https://primer-peldano-mx.vercel.app` directly, with no login screen. The accessibility tree showed the public page and all expected controls.
 
-**Severity: high - evidence integrity.** I replaced all three visible evidence fields with generic statements: “Había algo pendiente,” “Ayudé con el trabajo,” and “Terminamos.” The first deployment still marked all four criteria `Sustentado`.
+## Live browser checks
 
-**Cause:** matching used the selected seed's hidden tags instead of deriving signals from the visible, edited text. A worker could therefore change or erase the stated evidence while the status remained positive.
+### Employer gate
 
-**Fix:** the matching layer now normalizes the visible Spanish text, derives bounded tags with deterministic keyword rules, traces each criterion to only the claims that contain a relevant signal, and recalculates the missing tags on every analysis. A regression test proves that generic text can no longer retain hidden support.
+- `Ver bloqueo real` removes all evidence inputs.
+- The stop-state says no evidence or data should be requested before a real, dated employer commitment.
+- Returning to the simulated demo restores invented records only.
 
-## Persona pass
+### Input and integrity
 
-The full log is in `docs/PERSONA.md`. In addition to the integrity bug, the simulated user hesitated because the privacy warning appeared after the editable fields and because the result exposed English field names and a technical `JSON` label.
+- Replacing the first field with `persona@example.com` blocks mapping and reports that the field appears to contain sensitive data.
+- Replacing all visible evidence with generic text produces three `Sin evidencia` states and one `Parcial`; no hidden seed support survives.
+- Each status explains its reason, and only supported/partial states can cite visible claims.
 
-Fixes:
+### Responsive layout
 
-- moved the invented-data/privacy instruction before the first editable field;
-- replaced raw field keys with Spanish questions in validation errors and evidence provenance;
-- translated internal tag names into plain Spanish reasons;
-- renamed the export action from “Descargar registro JSON” to “Guardar una copia de mi registro,” with a plain-language explanation of the file format.
-
-## Mechanical pass 2
-
-After the fix:
-
-- 7 tests passed, 0 failed, including the new hidden-tag regression test;
-- TypeScript and the production build passed;
-- the second production deployment reached `Ready` and replaced the stable alias;
-- the same generic text produced three `Faltante` states and one `Parcial`, with explicit reasons;
-- the default Daniela example still produced four supported criteria;
-- the four human-walkthrough questions opened;
-- the portable record downloaded successfully;
-- the production alias returned HTTP 200 anonymously.
+- Desktop viewport: no horizontal overflow; hero, gate, opening, evidence form, and result cards render in the intended hierarchy.
+- Mobile viewport at 390 x 844: `scrollWidth` equals `innerWidth` (390); header, hero, criteria, example cards, inputs, and output cards stack without clipping.
 
 ## Security floor
 
 | Check | Result |
 |---|---|
-| No secrets in code or repository | Pass. No API integration or environment secret is used. |
-| Authentication for personal data | Not applicable: the prototype stores no data and explicitly accepts invented examples only. |
-| Row-level security | Not applicable: there is no database. |
-| Input validation | Pass: required fields, length limits, and sensitive-data patterns are enforced before analysis. |
-| No real personal data | Pass: every person, employer, opening, issuer, record, and claim is labeled invented or simulated. |
+| No secrets in code or repository | Pass. `.env.example` contains blank public variables only; no service-role key exists. |
+| Authentication for personal data | Not applicable to the public demo: it accepts invented examples and stores nothing. |
+| Supabase RLS | Pass for the optional future preflight table: RLS is enabled and policies require `auth.uid() = owner_id`. The migration is not applied to the public demo. |
+| Input validation | Pass: required text, length limits, email/phone/credential patterns, and card-number-like text are blocked. |
+| No real personal data | Pass: the reported worker story is not in the public application; all displayed people, employers, openings, and records are labeled invented. |
 
-## Known limits
+## Remaining pass
 
-- Keyword matching is intentionally narrow and not appropriate for production hiring.
-- The app does not verify identity, evidence truth, authorship, employer authority, vacancy existence, fairness, or employment.
-- The employer commitment is simulated. A real pilot must obtain the commitment before asking a worker for evidence.
-- The product-level outcome remains consent-verified formal employment at 90 days; this prototype cannot measure it.
+The final release still requires one usability correction, the second production deployment, another anonymous URL check, and an honest persona record. A synthetic or heuristic walkthrough cannot validate employer demand, worker benefit, or lived experience.
