@@ -11,7 +11,8 @@
 - [x] Two ready production deployments completed.
 - [x] Mechanical bug found, fixed, and verified: anonymous visitors no longer hit Vercel login.
 - [x] Final URL opens anonymously: https://primer-peldano-mx.vercel.app
-- [x] GitHub source: https://github.com/davidbuzali/week-9-primer-peldano
+- [x] GitHub source: https://github.com/davidbuzali/week-12-primer-peldano
+- [x] Dedicated Vercel project: https://vercel.com/davidbuzali/week-12-primer-peldano
 - [x] Ten automated tests, type checking, lint, and production build pass.
 - [x] Desktop and 390 x 844 browser checks pass without horizontal overflow.
 - [x] Packet, persona, and build-chat PDFs regenerated and visually checked.
@@ -28,7 +29,7 @@
 ## Files to submit
 
 - Live URL: `https://primer-peldano-mx.vercel.app`
-- GitHub: `https://github.com/davidbuzali/week-9-primer-peldano`
+- GitHub: `https://github.com/davidbuzali/week-12-primer-peldano`
 - `DEMO_David_Buzali.mp4` - manual recording still required
 - `output/pdf/PACKET_David_Buzali.pdf`
 - `output/pdf/PERSONA_David_Buzali.pdf` - explicitly preliminary until fresh-chat pass

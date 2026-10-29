@@ -46,7 +46,7 @@ def main() -> None:
         "",
         "**Development date:** 29 October 2026",
         "",
-        "**Repository:** https://github.com/davidbuzali/week-9-primer-peldano",
+        "**Repository:** https://github.com/davidbuzali/week-12-primer-peldano",
         "",
         "**Live URL:** https://primer-peldano-mx.vercel.app",
         "",

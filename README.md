@@ -3,7 +3,8 @@
 Primer Peldaño is David Buzali's Week 12 venture rebuild. It maps worker-controlled evidence from existing informal work to criteria for one opening, but only after an employer-commitment gate. The software preserves provenance and missingness; it never produces a global candidate score, hiring prediction, verification claim, or automatic verdict.
 
 - Live venture URL: https://primer-peldano-mx.vercel.app
-- GitHub: https://github.com/davidbuzali/week-9-primer-peldano
+- GitHub: https://github.com/davidbuzali/week-12-primer-peldano
+- Vercel project: https://vercel.com/davidbuzali/week-12-primer-peldano
 - Product charter: `docs/PRODUCT_CHARTER.md`
 - Packet-before-code: `docs/PACKET.md`
 - Testing and deploy cycle: `docs/TESTING.md`

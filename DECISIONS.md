@@ -43,3 +43,10 @@ The Week 9 history remains available in Git. Its last verified state used invent
 - Generated and visually inspected the Packet, preliminary Persona, and BUILDCHAT PDFs; corrected an orphaned Packet page and transcript page-break waste before finalizing them.
 - Preserved the remaining manual work as explicit gaps: fresh independent persona test, employer commitment, worker consent, comparable 10:1 measurement, actual human review, and demo-video recording.
 - Next decisive move: ask one real employer to accept a declared proof standard for one verified opening before a worker invests time.
+
+## Week 12 session close 5 - dedicated account resources
+
+- Created the public GitHub repository `davidbuzali/week-12-primer-peldano` and made it the primary `origin` for the Week 12 source.
+- Created the Vercel project `davidbuzali/week-12-primer-peldano` and connected it to the dedicated GitHub repository.
+- Retained the Week 9 repository and project as historical resources rather than overwriting or deleting them.
+- Kept `https://primer-peldano-mx.vercel.app` as the public venture URL of record while making the Week 12 project independently visible in both account dashboards.
