@@ -106,7 +106,7 @@ export function analyzeEvidence(draft: EvidenceDraft, opening: Opening): Analysi
 
 export function buildPortableRecord(draft: EvidenceDraft, opening: Opening, result: AnalysisResult, correctionRequested: boolean) {
   return {
-    schemaVersion: 'primer-peldano/0.1',
+    schemaVersion: 'primer-peldano/0.2',
     simulatedData: true,
     exportedAt: new Date().toISOString(),
     worker: { alias: draft.workerAlias },
