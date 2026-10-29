@@ -6,6 +6,8 @@
 
 **First ready deployment:** `dpl_4exL42rt5wKZ6D2YvGXHSc4ARM8k`
 
+**Fixed production deployment:** `dpl_GwyKHBVaJi6x4QQmPu5v3bZHoRWW`
+
 ## Mechanical pass 1
 
 ### Automated checks
@@ -62,6 +64,16 @@ A second upload produced the first ready Week 12 deployment and assigned both th
 | Input validation | Pass: required text, length limits, email/phone/credential patterns, and card-number-like text are blocked. |
 | No real personal data | Pass: the reported worker story is not in the public application; all displayed people, employers, openings, and records are labeled invented. |
 
-## Remaining pass
+## Final pass and deployment 2
 
-The final release still requires one usability correction, the second production deployment, another anonymous URL check, and an honest persona record. A synthetic or heuristic walkthrough cannot validate employer demand, worker benefit, or lived experience.
+The usability correction changed the default from the simulated commitment to the real stop-state. Ten automated tests, type checking, lint, and the production build passed after the fix. Deployment 2 reached `READY` with no deployment protection and the venture alias was repointed to it.
+
+Final browser verification at 390 x 844 confirmed:
+
+- the page opens with `Sin compromiso, el proceso se detiene aquí`;
+- no evidence fields exist until `Abrir demo inventada` is selected;
+- the demo then maps the default invented record to four supported criteria;
+- the page has no horizontal overflow;
+- the venture URL opens anonymously without a Vercel login.
+
+The preliminary persona record remains explicitly labeled as developer-run rather than a fresh independent chat. It cannot validate employer demand, worker benefit, lived experience, or comprehension by a real person.

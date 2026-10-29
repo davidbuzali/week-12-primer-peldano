@@ -1,39 +1,49 @@
 # Primer Peldaño
 
-Primer Peldaño is David Buzali's Week 9 individual build for Business Bending. It turns invented examples of existing informal work into transparent, criterion-level evidence for one simulated employer-accepted opening.
+Primer Peldaño is David Buzali's Week 12 venture rebuild. It maps worker-controlled evidence from existing informal work to criteria for one opening, but only after an employer-commitment gate. The software preserves provenance and missingness; it never produces a global candidate score, hiring prediction, verification claim, or automatic verdict.
 
-- Live app: https://week-9-first-rung.vercel.app
+- Live venture URL: https://primer-peldano-mx.vercel.app
 - GitHub: https://github.com/davidbuzali/week-9-primer-peldano
+- Product charter: `docs/PRODUCT_CHARTER.md`
 - Packet-before-code: `docs/PACKET.md`
-- Persona test: `docs/PERSONA.md`
-- Testing and bug-fix cycle: `docs/TESTING.md`
+- Testing and deploy cycle: `docs/TESTING.md`
+- Preliminary persona walkthrough: `docs/PERSONA.md`
 - Demo narration: `docs/DEMO_SCRIPT.md`
+- Build conversation: `docs/BUILDCHAT.md`
 
-## What it is not
+## Status honesty
 
-It is not a CV builder, job board, course, certificate, assessment, or new work assignment. Every person, employer, opening, commitment, and evidence item is invented. The AI is simulated. The app does not verify identity, truth, authorship, fairness, a vacancy, or a hire.
+The public flow uses invented people, employer, opening, commitment, and evidence. The reported real worker story is not published because consent is not documented. Employer demand, a real acceptance commitment, comparable 10:1 improvement, evidence truth, human review, and employment outcomes remain unverified.
 
-## Dragon Stack
+The application starts in the real-use stop-state. A visitor must explicitly choose `Abrir demo inventada` before any evidence fields appear.
 
-- React + TypeScript + Vite interface
-- labeled deterministic simulated-AI claim drafting
-- versioned structured opening, commitment, criteria, evidence, and provenance
-- transparent criterion matching derived from visible text
-- browser-local portable JSON record
+## Week 12 stack
 
-## Local checks
+- Next.js 16 + React 19 + TypeScript
+- Tailwind CSS 4
+- deterministic, visible-text evidence matching
+- optional Supabase client boundary with an owner-scoped RLS migration
+- Vercel production hosting under a venture-identity alias
+- GitHub source with five ordered Week 12 implementation commits plus final documentation
+
+No Supabase environment is configured in the public demo. It stores and sends no records. `.env.example` contains blank public variables only; no service-role key belongs in the project.
+
+## Local verification
 
 ```bash
+pnpm install
 pnpm test
+pnpm typecheck
+pnpm lint
 pnpm build
 ```
 
-No API key, database, login, or network call is required.
+Final verified state: 10 tests passed; type checking, lint, and the Next.js production build passed; the venture URL loaded anonymously on desktop and at 390 x 844.
 
-## Submission files
+## Submission artifacts
 
 - `output/pdf/PACKET_David_Buzali.pdf`
 - `output/pdf/PERSONA_David_Buzali.pdf`
 - `output/pdf/BUILDCHAT_David_Buzali.pdf`
-- `output/pdf/BRIEF_David_Buzali.pdf` (Brain Bending source)
-- `output/pdf/CHAT_David_Buzali.pdf` (Brain Bending transcript)
+
+The persona PDF is explicitly preliminary because a fresh independent-chat test has not yet been performed. Do not represent it as completed Layer 1 evidence.

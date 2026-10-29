@@ -1,39 +1,41 @@
-# Demo script - Primer Peldaño (3:30)
+# Demo script - Primer Peldaño Week 12 (3:30)
 
-## 0:00-0:25 - The missing first rung
+## 0:00-0:30 - The door must open
 
-“A young person can already coordinate customers, orders, and deliveries and still be rejected for lacking recognized experience. Primer Peldaño does not create another course, CV, job board, or unpaid audition. It makes work that already happened legible for one opening.”
+“Primer Peldaño begins with a simple claim: useful work should not disappear because it happened in an informal or unfamiliar setting. This is the live venture URL. It opens without login, uses invented data, and stores nothing.”
 
-Show the hero and the prototype boundary.
+Show `https://primer-peldano-mx.vercel.app`, the venture name, and the prototype label.
 
-## 0:25-0:55 - Employer gate first
+## 0:30-1:05 - The employer gate comes first
 
-“The first screen begins with the employer, not the worker. This invented employer has published four criteria and made a simulated commitment to accept named evidence instead of one year of formal experience. In production, no signed commitment means the process stops.”
+“The app does not begin by asking the worker for more effort. It begins blocked. Without a real, dated employer commitment for one opening, there is nothing to fill. The next move belongs to the employer: verify the opening, publish the criteria, and accept named evidence in place of the rejected experience proxy.”
 
-Show the commitment, opening ID, issuer, and four criteria.
+Show `Uso real: sin compromiso` and the empty stop-state. Then choose **Abrir demo inventada**.
 
-## 0:55-1:35 - Existing work, safely structured
+## 1:05-1:45 - One invented opening and existing work
 
-“Daniela is invented. She already coordinated dessert orders from home. She chooses that example and sees the privacy rule before the editable fields: no real names, contacts, IDs, accounts, passwords, or health data. The app validates length and blocks common sensitive-data patterns. Nothing is stored or sent.”
+“The demonstration now loads one invented operations opening with four published criteria. The worker starts from work that already happened. No new course, unpaid audition, or global ranking is created. Before the fields, the privacy boundary says not to enter names, contacts, identifiers, accounts, passwords, or health data.”
 
-Briefly switch among the three examples, return to Daniela, and click **Analizar evidencia**.
+Switch among the invented examples, return to `Pedidos de repostería`, and point to the three bounded fields.
 
-## 1:35-2:20 - Explainable simulated AI
+## 1:45-2:25 - Evidence map, not candidate score
 
-“The simulated AI only rewrites the three visible statements. Deterministic matching then looks for bounded signals in those statements and maps them to the employer's published criteria. There is no global candidate score. Each result gives a reason and traceable claim IDs. The red boundary states what the system cannot verify: identity, truth, authorship, fairness, the vacancy, or a hire.”
+“The simulated drafting step normalizes only the text on screen. Deterministic rules map that visible text to each criterion as sustentado, parcial, or sin evidencia. Missing proof stays visible and correctable. There is no match percentage or hiring prediction.”
 
-Open one **Ver trazabilidad** disclosure.
+Select **Mapear mi evidencia**. Open one provenance disclosure and show the cited visible statement.
 
-## 2:20-2:55 - Human review and worker control
+## 2:25-2:55 - Challenge the result
 
-“A person, not the system, completes the evaluation. The walkthrough asks about a decision, collaborators and tools, a limitation, and a new situation. Daniela can request a correction before sharing and save a portable local record. The file is not submitted to anyone.”
+“The first live build passed hidden positive tags through even after the text was weakened. That earlier Week 9 defect taught us to derive support only from what the worker can see. In the Week 12 browser pass, generic text produced three `Sin evidencia` states and one `Parcial`. An email address was also blocked before analysis.”
 
-Open the walkthrough, mark the correction box, and show **Guardar una copia de mi registro**.
+Briefly explain the regression test; do not enter real data during the recording.
 
-## 2:55-3:00 - Outcome honesty
+## 2:55-3:10 - Worker control and human authority
 
-“This prototype proves a workflow, not employment. A real pilot succeeds only with consent-verified formal employment at 90 days.”
+“The worker can request a correction and save a local copy. The file is not submitted or stored. A human must still inspect the evidence, and the system cannot verify truth, authorship, fairness, vacancy existence, or a hire.”
 
-## 3:00-3:30 - What changed my mind
+Show the correction checkbox and local export.
 
-“I began Week 9 favoring paid micro-experience. The team Blueprint changed my mind: the better first move is to recognize work that already exists and force the employer to change the filter before asking a worker to perform again. Testing changed the implementation too. My first deployment kept hidden positive tags even after the visible evidence was erased. That bug showed how easily an evidence product can become a confidence theater. The fixed build derives every match from what the person can see and correct. The lesson is that the first rung is not a credential; it is a credible employer commitment joined to transparent evidence and a real outcome.”
+## 3:10-3:30 - What changed my mind
+
+“Week 12 changed the product in two ways. First, the charter made the employer commitment the product's first gate, not a disclaimer. Second, live browser testing caught that Vercel protection made the supposed public URL ask for login. Fixing that changed my definition of shipped: a correct interface behind a closed door is not a venture. The remaining decisive test is not more software. It is one employer accepting the evidence standard before a real worker invests time.”

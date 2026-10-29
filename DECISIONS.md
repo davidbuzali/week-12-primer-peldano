@@ -34,3 +34,12 @@ The Week 9 history remains available in Git. Its last verified state used invent
 - Renamed the gate controls so the real and invented states describe themselves without internal product language.
 - Recorded the walkthrough honestly as preliminary because it was not conducted in a fresh independent chat.
 - Next move: rerun all checks, deploy the fixed release, verify anonymous access, and preserve the fresh-chat persona pass as a remaining manual requirement.
+
+## Week 12 session close 4 - final technical release
+
+- Ten tests, type checking, lint, and the Next.js production build pass.
+- Deployed the fixed release as `dpl_GwyKHBVaJi6x4QQmPu5v3bZHoRWW`; Vercel reports `READY` with no deployment protection.
+- Reassigned `https://primer-peldano-mx.vercel.app` to the fixed release and verified the stop-state and core mapping in an anonymous mobile browser.
+- Generated and visually inspected the Packet, preliminary Persona, and BUILDCHAT PDFs; corrected an orphaned Packet page and transcript page-break waste before finalizing them.
+- Preserved the remaining manual work as explicit gaps: fresh independent persona test, employer commitment, worker consent, comparable 10:1 measurement, actual human review, and demo-video recording.
+- Next decisive move: ask one real employer to accept a declared proof standard for one verified opening before a worker invests time.

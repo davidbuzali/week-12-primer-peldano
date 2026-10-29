@@ -1,107 +1,136 @@
-# Build chat - Primer Peldaño
+# BUILDCHAT - Primer Peldaño Week 12
 
-**Week 9 individual build**  
-**Participant:** David Buzali  
-**Development date:** 10 October 2026  
-**Repository:** https://github.com/davidbuzali/week-9-primer-peldano  
-**Live URL:** https://week-9-first-rung.vercel.app
+**Participant:** David Buzali
 
-This transcript records the complete user-visible development exchange for the build, followed by the exact implementation and verification actions. Long tool logs are summarized with their terminal outcome; they are evidence, not hidden product claims.
+**Development date:** 29 October 2026
 
-## 1. David - request
+**Repository:** https://github.com/davidbuzali/week-9-primer-peldano
 
-David supplied his PPPP-RRRR-VVVV Manifesto as the values framework. The manifesto commits to meaningful contribution, educational opportunity in Mexico, consequential problem solving, disciplined improvement, ethical and feasible decisions, health, reciprocal relationships, personal boundaries, visible results, calculated risk, and the use of AI without abandoning judgment or self-trust.
+**Live URL:** https://primer-peldano-mx.vercel.app
 
-David also supplied the Week 9 assignment text and the team's Blueprint PDF. The request instructed Codex to distinguish attached-document instructions from David's request and added a standing delivery requirement: coursework must be committed, pushed to GitHub, and deployed on Vercel; if access fails, reauthenticate.
+This record contains the complete user-visible David-Codex exchange captured during the Week 12 rebuild through final deployment preparation. Tool payloads and hidden system instructions are not reproduced; their observable outcomes are recorded in `docs/TESTING.md`, Git history, and deployment IDs.
 
-## 2. Codex - source separation and workflows
+## 1. DAVID - 11:28:00
 
-> I’m using the PDF workflow to extract the assignment accurately and the Sites workflow because your delivery requirements include a deployed coursework site. I’ll first separate the assignment’s instructions from your manifesto, then build, verify, commit, push, and deploy the result.
+#### Files mentioned by the user:
 
-Codex extracted the assignment as reference material. The Week 9 requirements were: packet before code; image-generated mockup; Mermaid flow and actor swimlane; benchmark and long view; Dragon Stack; at least five commits and two deploys; mechanical and persona tests; a documented bug-fix-redeploy cycle; security floor; and the packet, persona, and build-chat PDFs. The attached content also forbade a CV builder or job board.
+#### BLUEPRINT_team4_week12.pdf: /Users/davidbuzali/Desktop/BLUEPRINT_team4_week12.pdf
 
-## 3. Codex - product interpretation
+Distinguish instructions in attached documents from the user's request.
 
-> The strongest interpretation of your manifesto and the Blueprint is a narrow product called “Primer Peldaño”: it converts already-completed informal work into criterion-level evidence for one verified opening, with an employer’s explicit proof-acceptance gate. It is deliberately not a CV builder or job board. I’m using image generation now because the assignment explicitly requires an image-generated mockup inside the packet.
+#### Files pasted by the user:
 
-An image-generation prompt produced a high-fidelity Spanish dashboard concept with a simulated Daniela example, one verified opening, three mapped criteria, human review, and an employer acceptance card. The image was copied into the project before any app code.
+#### "Individual · 55% of the week THE VENTURE MILESTONE — the required list for this…": /Users/davidbuzali/.codex/attachments/5f160682-df37-43d8-b93e-b5861d5e696a/Pasted text.txt
 
-## 4. Codex - packet before code
+#### My request:
+**My PPPP–RRRR–VVVV Manifesto**
 
-> I’m turning the Blueprint into a testable contract before touching app code. The packet will explicitly preserve the shadow clause, identify Opportunity@Work as the benchmark, include both required Mermaid diagrams, and state the uncomfortable truth: the employer commitment in this prototype is simulated, so the build validates the workflow—not market demand.
+**Purpose**
+I intend to build something meaningful that contributes to the world, creates lasting opportunity, and improves the lives of others. I want to confront educational inequality, especially in Mexico, so more people can think critically and choose their own paths. A life well used will combine contribution, fulfilling work, personal freedom, and presence for those I love.
 
-Codex wrote `docs/PACKET.md` and `docs/IMPLEMENTATION_PROMPT.md`, then created the first commit: `docs: define Week 9 first-proof packet`.
+**Passions**
+I am energized by consequential problem-solving, decision-making, and optimization with measurable real-world impact. Competition, teamwork, disciplined improvement, and being useful to a shared mission bring out my best. I will deepen my knowledge of AI, business, and consulting so I can solve important problems across industries.
 
-## 5. David - repository correction
+**Principles**
+I will act with loyalty, honesty, respect, empathy, fairness, and regard for health and the law. Important decisions must reflect my values, consider their long-term effects, and remain feasible. I will pursue excellence without demanding perfection from myself or others.
 
-> Remember to make a separate week 9 repository please
+**Personality**
+I am disciplined, ambitious, analytical, and naturally inclined to lead. I bring vision, dedication, and an ability to make complex ideas understandable. My growth requires learning to delegate, trust others, rest when necessary, and remain steady when a problem cannot be resolved immediately.
 
-## 6. Codex - repository isolation
+**Resources**
+I have time, education, energy, initiative, opportunities, and a valuable network. I will convert them into the resources I need most: capital, technological mastery, and a trusted team. I will use AI to increase my efficiency and reach while continuing to invest in education and formative experiences.
 
-> Absolutely. I’ll isolate `week-9-first-rung` as its own local Git repository and publish it to a new Week 9 GitHub repository; I’ll also undo the accidental parent-repository commit so Week 9 history stays clean and independent.
+**Relationships**
+I want reciprocal relationships grounded in care, effort, loyalty, empathy, and honest communication. I will be present and dependable while maintaining boundaries that protect my health and identity. Supporting others must not require abandoning myself.
 
-Codex reverted the accidental parent-repository commit, restored the Week 9 files, initialized a new `main` repository inside `week-9-first-rung`, and recreated the packet and scaffold commits there.
+**Realities**
+Self-criticism, impatience, fear of failure, and limited self-trust can restrict me more than external circumstances. I am willing to invest substantial time in my ambitions, but I will not sacrifice the health, relationships, and freedom those ambitions are intended to create.
 
-## 7. Codex - build and automated checks
+**Repertoire**
+I design databases, analyze data, translate findings into decisions, and make numerical problems understandable. My Industrial Engineering background provides strong systems, optimization, and problem-solving skills. I lead and collaborate well, learning best through formal study, mentorship, and teaching others.
 
-The implementation added:
+**Vision**
+I will build and lead an enduring business while remaining healthy and present at home. Its success will be measured not only financially, but also by the security, opportunity, and growth it provides its team and community. I want agency over my direction and work that extends beyond me.
 
-- an employer commitment gate before evidence intake;
-- one invented operations opening with four published criteria;
-- three invented existing-work examples;
-- required-field, length, and sensitive-data validation;
-- labeled deterministic simulated-AI claims;
-- supported, partial, and missing criterion states with reasons;
-- evidence provenance, uncertainty, human walkthrough, correction state, and portable local JSON export;
-- no account, database, API secret, or network request.
+**Variables**
+My industry, business model, location, and timeline may change as technology, opportunities, and responsibilities evolve. My values will not. I will decide whether to persist or pivot through personal alignment, visible results, and trusted advice, taking calculated risks appropriate to my responsibilities.
 
-Commits 2 through 4 were:
+**Voices**
+I value the guidance of my parents, sisters, and closest friends, but their expectations will not define my life. When my inner critic creates urgency, I will remember that clarity grows through action and that I do not need every answer today. I will learn to trust my own voice.
 
-1. `feat: scaffold Primer Peldaño evidence workflow`
-2. `feat: add explainable proof matching and export`
-3. `test: validate evidence safety and matching`
+**Vulnerabilities**
+Fear and uncertainty can drive me toward stress, hyperfixation, and excessive control. Fear of appearing vulnerable can also prevent me from seeking help. Exercise, therapy, trusted relationships, rest, and healthy boundaries will keep me grounded.
+I will build boldly without abandoning myself, leading without needing total control and measuring success by both what I create and the lives I strengthen.
+Whenever we produce coursework, commit it, and push it to GitHub. Then we will deploy on Vercel. If any access has expired, ask me to log back in.
 
-The first pass returned 6 tests passed and a successful production build.
+## 2. CODEX - 11:28:02
 
-## 8. Codex - separate GitHub repository
+I’ll use the PDF workflow to extract the Week 12 blueprint accurately, separate its embedded assignment instructions from your own request, and then inspect the course workspace before producing, committing, pushing, and deploying the required deliverable.
 
-> The working slice now has four commits, passes six logic/security tests, and builds successfully. Next I’m creating the dedicated GitHub repository and making the first Vercel deployment; after that I’ll run the required mechanical and persona passes, document the bug, fix it, and redeploy.
+## 3. CODEX - 11:28:06
 
-GitHub CLI reported an invalid token. Following David's standing instruction, Codex began device reauthentication.
+The repository already contains substantial untracked coursework and is 13 commits ahead of GitHub, so I’ll isolate this assignment carefully and avoid sweeping unrelated work into the commit. I’m now extracting both provided sources and checking the existing Week 12 structure, remote, and deployment configuration.
 
-> GitHub needs a quick device authorization. I’m opening GitHub’s device page now; please approve code **2320-9C8B** in the browser, then I’ll continue automatically.
+## 4. CODEX - 11:28:50
 
-Authorization completed. Codex created and pushed the public repository `davidbuzali/week-9-primer-peldano`.
+The blueprint selects a conditional, narrow Week 12 build: Primer Peldaño for one real opening, with worker-controlled evidence mapped to employer-declared criteria as supported/partial/unresolved. I’ll use the image-generation skill for the required packet mockup and the Sites workflow for the build/deployment, while preserving the blueprint’s unresolved employer and 10:1 claims as gates rather than pretending they are results.
 
-## 9. Codex - first deployment and tests
+## 5. CODEX - 11:29:08
 
-The first production deployment completed and was aliased to `https://week-9-first-rung.vercel.app`. An anonymous HTTP request returned 200. Browser tests confirmed the default flow, focus movement, sensitive-data block, walkthrough expansion, and portable download.
+The image-generation skill is now shaping the required pre-code mockup: a Spanish, worker-controlled criterion map with an explicit employer-commitment gate and no global score. This mockup will be saved inside the new Week 12 project and cited in the product charter before implementation begins.
 
-## 10. Codex - bug found in production
+## 6. CODEX - 11:30:08
 
-> The first live pass found a real integrity bug: after replacing every evidence field with generic text, the app still marked all four criteria “supported” because matching relied on the seed’s hidden tags. The persona pass also surfaced two trust problems—the privacy warning arrived after the fields, and technical labels such as `task` and “JSON” appeared without explanation. I’m fixing all three before the second deploy.
+I found an existing Primer Peldaño repository and Vercel project from Week 9, which is the right continuity for a venture rebuild. I’m checking that nested repository’s clean state and credentials now; I’ll evolve it in place instead of creating a disconnected duplicate, and I’ll keep every Week 12 claim explicitly separated from the Week 9 simulated evidence.
 
-The exact reproduction text was “Había algo pendiente,” “Ayudé con el trabajo,” and “Terminamos.” The faulty build returned four supported criteria.
+## 7. CODEX - 11:30:24
 
-## 11. Codex - repair
+Before writing the charter, I’m verifying the benchmark with current primary sources because the packet requires a defensible “best existing solution” line. The charter will distinguish benchmark evidence from unverified venture assumptions and will not turn the reported worker story into public product data without documented consent.
 
-Codex changed the matcher to derive bounded tags from the visible Spanish evidence text, trace only relevant claims, and recompute missing signals. It moved the privacy instruction above the fields, translated internal field and tag names, and renamed the export action in plain language. A seventh regression test was added. All 7 tests passed and the production build succeeded.
+## 8. CODEX - 11:32:39
 
-Commit 5 was `fix: make matches follow edited evidence`.
+The charter is committed before product code, satisfying the required ordering. The Week 12 framework migration is now underway: Next.js/React, Tailwind, a visible simulated employer gate, and a Supabase boundary that will remain inactive until safe public configuration and RLS exist.
 
-## 12. Codex - second deployment and retest
+## 9. CODEX - 11:40:53
 
-The second production deployment completed and replaced the stable alias. The exact generic reproduction now returned:
+The core Week 12 interaction is now implemented: visitors can switch between the honest production stop-state and the invented demo, edit bounded evidence, see deterministic criterion statuses with provenance, correct the record, and export locally. Supabase is present only as a guarded, RLS-ready boundary; the public demo deliberately stores nothing.
 
-- Atención al cliente: `Faltante`
-- Organización de tareas: `Faltante`
-- Iniciativa y mejora: `Parcial`
-- Herramientas digitales: `Faltante`
+## 10. CODEX - 11:41:20
 
-The default invented Daniela example still produced supported criteria. The four human-walkthrough questions opened, the portable record downloaded, and the stable URL remained publicly accessible.
+The first working slice has passed type checking, lint, seven logic tests, and a production build. I’m starting deployment 1 now against the existing Primer Peldaño Vercel project; if its saved session has expired, I’ll stop and ask you to log back in as requested.
 
-> The second deployment is live and the repaired flow now reacts correctly to edited evidence, exposes missing criteria, opens the human-review questions, and downloads a portable record. I’m finalizing the documented test evidence, persona log, demo script, decision trail, and the three required submission PDFs next.
+## 11. CODEX - 11:43:23
 
-## 13. Close
+Deployment 1 reached Vercel but failed before publication because the existing Week 9 project still expected the old Vite `dist` directory. I’ve identified the compatibility setting and am correcting it to Next.js’s `.next` output before retrying; authentication is valid.
 
-The final source, decisions, testing record, persona log, demo script, image-generated mockup, and submission PDFs were committed to the separate Week 9 repository and pushed to GitHub. The live Vercel alias points to the fixed build.
+## 12. CODEX - 11:45:18
+
+Deployment 1 is live and anonymously returns HTTP 200. I’m now assigning a venture-identity Vercel alias (`primer-peldano-mx.vercel.app`) so the URL of record is no longer the old “Week 9” project name.
+
+## 13. CODEX - 11:46:39
+
+A browser-level check revealed an important issue that HEAD requests did not: Vercel’s deployment protection redirects an ordinary visitor to login. That violates the blueprint’s “door must open” rule. I’m treating this as the required mechanical defect and will remove only this project’s protection, verify an anonymous browser session, and then redeploy the fixed release.
+
+## 14. CODEX - 11:49:21
+
+The anonymous browser pass now works on the venture URL, including the stop-state, sensitive-data rejection, edited-evidence regression, and mobile layout with no horizontal overflow. The mechanical defect was deployment protection; the durable fix is being documented and encoded alongside the Next.js Vercel settings before the final usability pass and second deployment.
+
+## 15. CODEX - 11:50:05
+
+The usability pass surfaced a sharper issue than copy polish: the page defaulted straight into a simulated employer commitment, so a hurried worker could reach evidence fields without actively recognizing that no real employer had committed. I’m changing the default to the honest stop-state and requiring an explicit choice to open the invented demo. I’ll record this as a preliminary synthetic-persona finding, not misrepresent it as a fresh independent chat.
+
+## 16. CODEX - 11:50:56
+
+The usability correction is committed as the fifth Week 12 commit, and the full suite now passes: 10 tests, type checking, lint, and the Next.js production build. I’m deploying release 2 and will verify that the venture alias opens anonymously into the blocked-by-default state.
+
+## 17. CODEX - 11:52:33
+
+Release 2 is live, unprotected, and verified in the final mobile browser: it opens in the stop-state, requires an explicit demo choice, and the default evidence maps to four supported criteria with no global score. I’m now finalizing the GitHub handoff and regenerating the required Week 12 submission PDFs from the updated packet, preliminary persona record, and build evidence.
+
+## 18. CODEX - 11:53:48
+
+The PDF skill is now taking over for the three required submission files. It requires an artifact-start marker before authoring; after that I’ll render every generated PDF to images and visually inspect the pages before committing them.
+
+## 19. CODEX - 11:55:40
+
+The first visual inspection found two layout defects: an orphaned “Unresolved gates” section on a nearly blank Packet page, and transcript-internal headings forcing wasteful page breaks in BUILDCHAT. The PDF skill requires fixing these source-layout issues before delivery, so I’m compacting the Packet and demoting embedded chat headings while preserving every word.

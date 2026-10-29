@@ -1,4 +1,4 @@
-"""Build the three Week 9 submission PDFs from the committed Markdown sources."""
+"""Build the three Week 12 submission PDFs from the committed Markdown sources."""
 
 from __future__ import annotations
 
@@ -176,7 +176,7 @@ def markdown_story(path: Path, include_mockup: bool = False):
         elif line.startswith("!["):
             flush_paragraph()
             if include_mockup:
-                image_path = ROOT / "docs" / "assets" / "primer-peldano-mockup.png"
+                image_path = ROOT / "docs" / "assets" / "primer-peldano-week12-mockup.png"
                 img = Image(str(image_path), width=7.0 * inch, height=3.94 * inch)
                 story.append(KeepTogether([img, Paragraph("Image-generated interface direction. All people, openings, and records are invented.", S["small"])]))
         elif line.startswith("> "):
@@ -211,7 +211,7 @@ def decorate_page(canvas, doc, short_title: str):
     canvas.line(0.62 * inch, 0.52 * inch, width - 0.62 * inch, 0.52 * inch)
     canvas.setFont(REGULAR, 6.8)
     canvas.setFillColor(MUTED)
-    canvas.drawString(0.62 * inch, 0.34 * inch, f"PRIMER PELDAÑO / WEEK 9 / {short_title}")
+    canvas.drawString(0.62 * inch, 0.34 * inch, f"PRIMER PELDAÑO / WEEK 12 / {short_title}")
     canvas.drawRightString(width - 0.62 * inch, 0.34 * inch, str(doc.page))
     canvas.restoreState()
 
@@ -228,7 +228,7 @@ def build(source: str, target: str, title: str, include_mockup: bool = False):
         bottomMargin=0.68 * inch,
         title=title,
         author="David Buzali",
-        subject="Business Bending Week 9 - Primer Peldaño",
+        subject="Business Bending Week 12 - Primer Peldaño",
     )
     doc.build(story, onFirstPage=lambda c, d: decorate_page(c, d, title.upper()), onLaterPages=lambda c, d: decorate_page(c, d, title.upper()))
 

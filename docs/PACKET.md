@@ -88,7 +88,7 @@ If this slice works, Primer Peldaño becomes shared infrastructure through which
 
 ## Scope cut
 
-This week does not build a CV builder, job board, candidate marketplace, ranking, credential, identity-verification service, background check, payroll flow, hiring decision, new work assignment, course, unpaid audition, or production LLM. It does not publish the reported worker's story or assert that an employer has committed. It does not claim 10:1 value.
+This week does not build a CV builder, job board, candidate marketplace, ranking, credential, identity-verification service, background check, payroll flow, hiring decision, new work assignment, course, unpaid audition, or production LLM. It does not publish the reported worker's story or assert that an employer has committed. It does not claim 10:1 value. The employer commitment, consented worker evidence, comparable 10:1 measurement, and actual human review remain unresolved field gates, not claims the software can manufacture.
 
 ## Architecture and free stack
 
@@ -129,7 +129,3 @@ Use a fresh synthetic persona based on an invented mid-career worker who reads s
 - The worker can correct the input and export a local record.
 - Supabase remains disabled unless its public configuration exists; no service secret is shipped.
 - The final Vercel URL returns the tested production build.
-
-## Unresolved gates
-
-The employer commitment, consented worker evidence, comparable 10:1 measurement, and actual human review remain unresolved. They are the next decisive field test, not claims the software can manufacture.
